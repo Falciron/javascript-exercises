@@ -1,13 +1,8 @@
 const removeFromArray = function() {
-    const workingArray = arguments[0];
-
-    for (let i = 1; i < arguments.length; i++){
-        const searchTerm = arguments[i];
-        const foundAtIndex = workingArray.indexOf(searchTerm);
-        workingArray.splice(foundAtIndex,1);
-    }
-    
-    return workingArray;
+    const argumentArray = Array.from(arguments);
+    const workingArray = argumentArray[0];
+    const itemsToRemove = argumentArray.slice(1);
+    return workingArray.filter((item) => !itemsToRemove.includes(item));
 };
 
 // Do not edit below this line

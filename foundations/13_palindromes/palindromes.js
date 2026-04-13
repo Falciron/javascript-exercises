@@ -1,10 +1,11 @@
-const palindromes = function (word) {
-    const wordLength = word.length;
-    const lettersToCheck = Math.floor(wordLength/2);
-    const wordArray = word.split("");
+const palindromes = function (phrase) {
+    const lowercasePhrase = phrase.toLowerCase();
+    const alphaNumOnlyPhrase = lowercasePhrase.replace(/[\W_]/g, '');
+    const individualCharArray = alphaNumOnlyPhrase.split("");
+    const phraseLength = individualCharArray.length;
 
-    for (let i = 0; i < lettersToCheck; i++){
-        if (wordArray[i] !== wordArray[wordLength - 1 - i]) return false;
+    for (let i = 0; i < phraseLength; i++){
+        if (individualCharArray[i] !== individualCharArray[phraseLength - 1 - i]) return false;
     }
 
     return true;
